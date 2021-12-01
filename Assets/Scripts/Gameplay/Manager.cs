@@ -7,7 +7,6 @@ public class Manager : MonoBehaviour
     public bool canFlipCard; // State where the card is flipped
     public delegate void GameEvent();
     public static event GameEvent GenerateDeck;
-    public static event GameEvent ReshuffleDeck;
     public static event GameEvent DrawCard;
     public static event GameEvent FlipCard;
     public delegate void IndexEvent(int index);
@@ -23,10 +22,8 @@ public class Manager : MonoBehaviour
         canDrawCard = false;
         canFlipCard = false;
 
-        // TODO: Generate and shuffle the deck
-
-
-        // TODO: Add deck to the draw pile
+        // Generate and shuffle the deck
+        GenerateDeck();
 
         // Game can start now
         canDrawCard = true;
@@ -34,13 +31,14 @@ public class Manager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !canDrawCard)
+        if (Input.GetKeyDown(KeyCode.Space) && canDrawCard)
         {
             DrawCard();
         } 
-        else if (Input.GetKeyDown(KeyCode.Space) && !canFlipCard)
+        else if (Input.GetKeyDown(KeyCode.Space) && canFlipCard)
         {
-            
+            // TODO: Flips open the card and reveals choices
+            FlipCard();
         }
     }
 

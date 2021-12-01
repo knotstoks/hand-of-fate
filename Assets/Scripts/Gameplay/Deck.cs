@@ -25,12 +25,17 @@ public class Deck : MonoBehaviour
     public static event PlayerEvent AddResources;
     public delegate void UiEvent(Event eventToDisplay);
     public static event UiEvent ShowEvent;
+    public static event UiEvent FlipEvent;
+    public static event UiEvent PlaceInEvent;
+    public delegate void UiDiplay();
+    public static event UiDiplay UiShuffleDeck;
+    public static event UiDiplay UiSelectedChoice;
 
     private void Start()
     {
         Manager.GenerateDeck += GenerateDeck;
-        Manager.ReshuffleDeck += ReshuffleDeck;
         Manager.DrawCard += DrawCard;
+        Manager.FlipCard += FlipCard;
         Manager.ChooseChoice += ResolveEvent;
     }
 
@@ -44,6 +49,7 @@ public class Deck : MonoBehaviour
     private void ReshuffleDeck()
     {
         Deck.DrawNotReady(); // Stop inputs by player just in case
+        Deck.ChoiceNotReady();
 
         ShuffleDiscardPile();
         for (int i = 0; i < discardPile.Count; i++)
@@ -53,17 +59,25 @@ public class Deck : MonoBehaviour
         discardPile.Clear();
 
         Deck.DrawReady(); // Allow inputs by player
+        Deck.ChoiceReady();
     }
     
-    public void DrawCard() // TODO
+    private void DrawCard()
     {
         Deck.DrawNotReady(); // Stop drawing input by player
-
-        // TODO: Animation of drawing card
+        Deck.ChoiceReady();
 
         Event currEvent = drawPile.Dequeue();
         eventShown = currEvent;
+
+        // Animation of drawing card
         ShowEvent(currEvent);
+    }
+
+    private void FlipCard()
+    {
+        Deck.ChoiceNotReady();
+        FlipEvent(eventShown);
     }
 
     public void ResolveEvent(int choiceTaken)
@@ -93,7 +107,7 @@ public class Deck : MonoBehaviour
         if (drawPile.Count == 0)
         {
             ReshuffleDeck();
-            // TODO: Reshuffle Deck animation
+            UiShuffleDeck();
         }
         else
         {
@@ -103,7 +117,7 @@ public class Deck : MonoBehaviour
         discardPile.Add(eventShown); // Discard the card
         eventShown = null; // Clear the current event
 
-        // TODO: Animation of card going off screen
+        UiSelectedChoice();
     }
 
     private void GivePlayer(Result result)
@@ -116,7 +130,7 @@ public class Deck : MonoBehaviour
         if (result.isCardToAddPresent)
         {
             discardPile.Add(result.cardToAdd);
-            // TODO: Animation for the shuffling of the card
+            PlaceInEvent(result.cardToAdd);
         }
     }
 
