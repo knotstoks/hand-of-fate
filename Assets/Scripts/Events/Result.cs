@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Result : MonoBehaviour
+public class Result : ScriptableObject
 {
     public bool isCardToAddPresent;
-    public List<ResourceCard> resourcesGiven;
+    public List<Resource> resourcesGiven;
     public Event cardToAdd;
 }

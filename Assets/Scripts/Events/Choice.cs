@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Choice : ScriptableObject
+public class Choice : MonoBehaviour
 {
     public string choiceName;
     public Requirement requirement;

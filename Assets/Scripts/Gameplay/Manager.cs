@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
@@ -11,7 +9,8 @@ public class Manager : MonoBehaviour
     public static event GameEvent GenerateDeck;
     public static event GameEvent ReshuffleDeck;
     public static event GameEvent DrawCard;
-
+    public delegate void IndexEvent(int index);
+    public static event IndexEvent ChooseChoice;
     private void Start()
     {
         Deck.DeckReady += AllowInputs;

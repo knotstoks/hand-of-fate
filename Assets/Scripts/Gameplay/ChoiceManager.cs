@@ -20,4 +20,9 @@ public class ChoiceManager : MonoBehaviour
     {
         isActive = false;
     }
+
+    public void GetChoiceInput(int index)
+    {
+        MakeChoice(index);
+    }
 }

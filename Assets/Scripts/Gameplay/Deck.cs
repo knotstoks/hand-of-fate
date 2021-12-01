@@ -19,11 +19,14 @@ public class Deck : MonoBehaviour
     public delegate void DeckEvent();
     public static event DeckEvent DeckReady;
     public static event DeckEvent DeckNotReady;
+    public delegate void PlayerEvent(List<Resource> resources);
+    public static event PlayerEvent AddResources;
     private void Start()
     {
         Manager.GenerateDeck += GenerateDeck;
         Manager.ReshuffleDeck += ReshuffleDeck;
         Manager.DrawCard += DrawCard;
+        Manager.ChooseChoice += ResolveEvent;
     }
 
     private void GenerateDeck()
@@ -51,14 +54,26 @@ public class Deck : MonoBehaviour
     public void ResolveEvent(int choiceTaken)
     {
         int index = choiceTaken - 1;
-        List<Choice> choices = eventShown.eventData.choices;
-        
-        // Check if there is no choice at that slot and do nothing
-        if (choices.Count < index)
+        // Check if there is no choice at that slot and if so do nothing
+        if (eventShown.eventData.numberOfChoices < index)
         {
             return;
         }
 
         
+    }
+
+    public void GivePlayer(Result result)
+    {
+        // Give the resources to the Player
+        AddResources(result.resourcesGiven);
+        // TODO: Animation for the resources given
+
+        // Check if there is a card to shuffle in
+        if (result.isCardToAddPresent)
+        {
+            discardPile.Add(result.cardToAdd);
+            // TODO: Animation for the shuffling of the card
+        }
     }
 }
