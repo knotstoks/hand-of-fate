@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Result : ScriptableObject
+[System.Serializable]
+public class Result
 {
     public bool isCardToAddPresent;
-    public List<Resource> resourcesGiven;
     public Event cardToAdd;
+    public List<Resource> resourcesGiven;
 }

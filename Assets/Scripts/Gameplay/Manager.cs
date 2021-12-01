@@ -11,6 +11,8 @@ public class Manager : MonoBehaviour
     public static event GameEvent DrawCard;
     public delegate void IndexEvent(int index);
     public static event IndexEvent ChooseChoice;
+    public delegate void PromptEvent();
+    public static event PromptEvent WrongResources;
     private void Start()
     {
         Deck.DeckReady += AllowInputs;
@@ -19,9 +21,8 @@ public class Manager : MonoBehaviour
         isGameReady = false;
         isCardShown = false;
 
-        // TODO: Generate the deck
+        // TODO: Generate and shuffle the deck
 
-        // TODO: Shuffle the deck
 
         // TODO: Add deck to the draw pile
     }
@@ -36,7 +37,8 @@ public class Manager : MonoBehaviour
 
     public void SelectChoice(int choice)
     {
-        
+        // TODO: Check to see if area has required resources
+        ChooseChoice(choice);
     }
 
     private void AllowInputs()

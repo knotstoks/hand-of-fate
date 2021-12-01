@@ -29,22 +29,24 @@ public class Deck : MonoBehaviour
         Manager.ChooseChoice += ResolveEvent;
     }
 
-    private void GenerateDeck()
+    private void GenerateDeck() // TODO
     {
 
     }
 
-    private void ReshuffleDeck()
+    private void ReshuffleDeck() // TODO
+    {
+        Deck.DeckNotReady(); // Stop inputs by player just in case
+        
+
+        Deck.DeckReady(); // Allow inputs by player
+    }
+    
+    public void DrawCard() // TODO
     {
         Deck.DeckNotReady(); // Stop inputs by player just in case
 
-    }
-    
-    public void DrawCard()
-    {
-        Deck.DeckNotReady(); // Stop inputs by player
-
-        // TODO: Animation of putting the card in Discard Pile
+        
 
         
 
@@ -53,6 +55,7 @@ public class Deck : MonoBehaviour
 
     public void ResolveEvent(int choiceTaken)
     {
+        Deck.DeckNotReady();
         int index = choiceTaken - 1;
         // Check if there is no choice at that slot and if so do nothing
         if (eventShown.eventData.numberOfChoices < index)
@@ -60,7 +63,19 @@ public class Deck : MonoBehaviour
             return;
         }
 
-        
+        discardPile.Add(eventShown);
+        eventShown = null; // Clear the current event
+        // TODO: Animation of card going off screen
+
+        if (drawPile.Count == 0)
+        {
+            ReshuffleDeck();
+            // TODO: Reshuffle Deck animation
+        }
+        else
+        {
+            DrawCard();
+        }
     }
 
     public void GivePlayer(Result result)

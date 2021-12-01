@@ -1,8 +1,7 @@
-using UnityEngine;
-
-public class Choice : MonoBehaviour
+[System.Serializable]
+public class Choice
 {
-    public string choiceName;
+    public string choiceDescription;
     public Requirement requirement;
     public Result result;
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Requirement : MonoBehaviour
+[System.Serializable]
+public class Requirement
 {
-    public List<ResourceCard> resourcesNeeded;
+    public List<Resource> resourcesNeeded;
 }

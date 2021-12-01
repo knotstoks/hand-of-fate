@@ -15,9 +15,9 @@ public class Hand : MonoBehaviour
     /*
     Adds resources to the Player's Hand
     */
-    private void AddResources(List<Resource> resources)
+    private void AddResources(List<Resource> resources) // TODO
     {
 
-        // TODO: Animation
+        // TODO: Animation for adding resources
     }
 }

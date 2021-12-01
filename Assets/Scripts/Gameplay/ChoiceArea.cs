@@ -7,6 +7,9 @@ public class ChoiceArea : MonoBehaviour
     public ChoiceManager choiceManager;
     private void OnMouseDown()
     {
-        choiceManager.GetChoiceInput(index);
+        if (choiceManager.isActive)
+        {
+            choiceManager.GetChoiceInput(index);
+        }
     }
 }
