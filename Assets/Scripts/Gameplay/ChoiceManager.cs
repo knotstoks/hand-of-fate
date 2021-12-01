@@ -8,8 +8,8 @@ public class ChoiceManager : MonoBehaviour
 
     public void Start()
     {
-        Deck.DeckNotReady += DisableChoices;
-        Deck.DeckReady += EnableChoices;
+        Deck.ChoiceReady += EnableChoices;
+        Deck.ChoiceNotReady += DisableChoices;
     }
 
     private void EnableChoices()
