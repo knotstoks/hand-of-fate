@@ -9,7 +9,7 @@ public class PlayArea : MonoBehaviour
     /*
     Static Method to add resources
     */
-    public static void AddResources()
+    public static void AddResources(Resource resourcesToAdd)
     {
         Debug.Log("tets");
     }

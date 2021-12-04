@@ -93,29 +93,29 @@ public class Deck : MonoBehaviour
         Choice choice = null;
         switch (index)
         {
-            case 1:
+            case 0:
             choice = eventShown.eventData.firstChoice;
             break;
-            case 2:
+            case 1:
             choice = eventShown.eventData.secondChoice;
             break;
-            case 3:
+            case 2:
             choice = eventShown.eventData.thirdChoice;
             break;
         }
+
+        discardPile.Add(eventShown); // Discard the card
+        eventShown = null; // Clear the current event
+
+        GivePlayer(choice.result);
+
+        // TODO: Clear resources from Play Area
 
         if (drawPile.Count == 0)
         {
             ReshuffleDeck();
             UiShuffleDeck();
         }
-        else
-        {
-            GivePlayer(choice.result);
-        }
-
-        discardPile.Add(eventShown); // Discard the card
-        eventShown = null; // Clear the current event
 
         UiSelectedChoice();
     }

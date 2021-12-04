@@ -29,7 +29,7 @@ public class ResourceCard : MonoBehaviour
     {
         if(playArea.bounds.Intersects(selfCollider.bounds))
         {
-            PlayArea.AddResources();
+            PlayArea.AddResources(type);
             Destroy(gameObject);
         }
 
