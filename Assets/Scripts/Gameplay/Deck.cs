@@ -135,6 +135,16 @@ public class Deck : MonoBehaviour
     }
 
     /*
+    Static method to add resources to Hand if resource goes out of bounds
+    */
+    public static void ReturnResource(Resource resource)
+    {
+        List<Resource> resourceToAdd = new List<Resource>();
+        resourceToAdd.Add(resource);
+        Deck.AddResources(resourceToAdd);
+    }
+
+    /*
     Method to quickly shuffle list
     */
     private void ShuffleDiscardPile() {
