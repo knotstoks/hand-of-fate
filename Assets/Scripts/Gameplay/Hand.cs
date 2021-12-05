@@ -5,7 +5,7 @@ public class Hand : MonoBehaviour
 {
     [Header("Prefabs for Resource Cards")]
     public List<ResourceCard> resourceCards;
-    [HideInInspector] public List<Resource> hand;
+    public Resource[] hand = new Resource[15];
     
     private void Start()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayArea : MonoBehaviour
 {
-    public List<Resource> resourcesIn;
+    public Resource[] resourcesIn = new Resource[6];
     // TODO: Implement Drag and Drop Feature
 
     /*
