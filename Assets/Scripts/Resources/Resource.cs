@@ -1,9 +1,9 @@
 public enum Resource
 {
-    Idol,
     Money,
     Crewmate,
     Favour,
     Supplies,
+    Idol,
     Omen
 }

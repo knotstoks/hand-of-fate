@@ -21,8 +21,8 @@ public class Deck : MonoBehaviour
     public static event DeckEvent DrawNotReady;
     public static event DeckEvent ChoiceReady;
     public static event DeckEvent ChoiceNotReady;
-    public delegate void PlayerEvent(List<Resource> resources);
-    public static event PlayerEvent AddResources;
+    public delegate void HandEvent(Choice choice);
+    public static event HandEvent ChoiceChosen;
     public delegate void UiEvent(Event eventToDisplay);
     public static event UiEvent ShowEvent;
     public static event UiEvent FlipEvent;
@@ -104,10 +104,20 @@ public class Deck : MonoBehaviour
             break;
         }
 
+        Result result = choice.result;
+
+        ChoiceChosen(choice); // Change resources in hand
+
+        // TODO: Animation of putting it in
+
+        if (result.isCardToAddPresent) // Put in the card in the discard pile if it exists
+        {
+            discardPile.Add(result.cardToAdd);
+            PlaceInEvent(result.cardToAdd);
+        }
+
         discardPile.Add(eventShown); // Discard the card
         eventShown = null; // Clear the current event
-
-        GivePlayer(choice.result);
 
         // TODO: Clear resources from Play Area
 
@@ -120,28 +130,12 @@ public class Deck : MonoBehaviour
         UiSelectedChoice();
     }
 
-    private void GivePlayer(Result result)
-    {
-        // Give the resources to the Player
-        AddResources(result.resourcesGiven);
-        // TODO: Animation for the resources given
-
-        // Check if there is a card to shuffle in
-        if (result.isCardToAddPresent)
-        {
-            discardPile.Add(result.cardToAdd);
-            PlaceInEvent(result.cardToAdd);
-        }
-    }
-
     /*
-    Static method to add resources to Hand if resource goes out of bounds
+    TODO: Static method to move the resource back to hand if resource goes out of bounds
     */
-    public static void ReturnResource(Resource resource)
+    public static void ReturnResource()
     {
-        List<Resource> resourceToAdd = new List<Resource>();
-        resourceToAdd.Add(resource);
-        Deck.AddResources(resourceToAdd);
+        
     }
 
     /*
