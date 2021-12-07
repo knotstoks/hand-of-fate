@@ -8,7 +8,6 @@ public class Manager : MonoBehaviour
     public Deck deck;
     private void Start()
     {
-        ChoiceManager.MakeChoice += SelectChoice;
         canDrawCard = false;
         canFlipCard = false;
 

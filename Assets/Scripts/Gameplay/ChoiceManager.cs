@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
 {
+    public Manager manager;
     public bool isActive;
-    public delegate void ClickEvent(int index);
-    public static event ClickEvent MakeChoice;
 
     public void EnableChoices()
     {
@@ -18,6 +17,6 @@ public class ChoiceManager : MonoBehaviour
 
     public void GetChoiceInput(int index)
     {
-        MakeChoice(index);
+        manager.SelectChoice(index);
     }
 }

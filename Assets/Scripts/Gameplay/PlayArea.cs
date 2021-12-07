@@ -7,9 +7,9 @@ public class PlayArea : MonoBehaviour
     public static int[] resourcesIn = new int[5];
     // TODO: Implement Drag and Drop Feature
 
-    private void Start()
+    private void Start() // TODO: May want to change this depending on how many resources they want to start with
     { 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             resourcesIn[i] = 0;
         }
