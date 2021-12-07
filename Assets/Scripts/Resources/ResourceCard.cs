@@ -5,14 +5,14 @@ public class ResourceCard : MonoBehaviour
     public Resource type;
     private Vector3 dragOffset;
     private Camera sceneCamera;
-    private BoxCollider2D playArea;
+    private GameObject playArea;
     private BoxCollider2D selfCollider;
     private void Awake()
     {
         selfCollider = GetComponent<BoxCollider2D>();
 
         sceneCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        playArea = GameObject.FindGameObjectWithTag("PlayArea").GetComponent<BoxCollider2D>();
+        playArea = GameObject.FindGameObjectWithTag("PlayArea");
     }
 
     private void OnMouseDown()
@@ -27,9 +27,9 @@ public class ResourceCard : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if(playArea.bounds.Intersects(selfCollider.bounds))
+        if(playArea.GetComponent<BoxCollider2D>().bounds.Intersects(selfCollider.bounds))
         {
-            PlayArea.AddResources(type);
+            playArea.GetComponent<PlayArea>().AddResources(type);
             Destroy(gameObject);
         }
 

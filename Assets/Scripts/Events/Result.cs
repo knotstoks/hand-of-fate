@@ -5,5 +5,5 @@ public class Result
 {
     public bool isCardToAddPresent;
     public Event cardToAdd;
-    public List<Resource> resourcesGiven;
+    public int[] resourcesGiven;
 }

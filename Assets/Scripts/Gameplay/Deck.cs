@@ -57,6 +57,7 @@ public class Deck : MonoBehaviour
 
         Event currEvent = drawPile.Dequeue();
         eventShown = currEvent;
+        playArea.UpdateEvent(eventShown);
 
         // Animation of drawing card
         ShowEvent(currEvent);

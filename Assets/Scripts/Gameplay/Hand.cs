@@ -11,59 +11,31 @@ public class Hand : MonoBehaviour
     {
         // Destroy choice requirement
         Requirement requirement = choice.requirement;
-        
-        foreach (Resource resource in requirement.resourcesNeeded) 
+
+        int idolRequired = 0;
+        for (int i = 0; i < 5; i++)
         {
-            switch (resource)
+            int surplus = requirement.resourcesNeeded[i] - hand[i];
+            if (surplus > 0)
             {
-            case Resource.Money:
-            hand[0]--;
-            break;
-            case Resource.Crewmate:
-            hand[1]--;
-            break;
-            case Resource.Favour:
-            hand[2]--;
-            break;
-            case Resource.Supplies:
-            hand[3]--;
-            break;
-            case Resource.Idol:
-            hand[4]--;
-            break;
-            case Resource.Omen:
-            hand[5]--;
-            break;
+                idolRequired += surplus;
+                hand[i] = 0;
+            } else
+            {
+                hand[i] -= requirement.resourcesNeeded[i];
             }
         }
+
+        hand[5] -= idolRequired;
         // TODO: Animation for adding resources
 
         //Give choice result
         Result result = choice.result;
 
-        foreach (Resource resource in result.resourcesGiven) 
+        for (int i = 0; i < 6; i++)
         {
-            switch (resource)
-            {
-            case Resource.Money:
-            hand[0]++;
-            break;
-            case Resource.Crewmate:
-            hand[1]++;
-            break;
-            case Resource.Favour:
-            hand[2]++;
-            break;
-            case Resource.Supplies:
-            hand[3]++;
-            break;
-            case Resource.Idol:
-            hand[4]++;
-            break;
-            case Resource.Omen:
-            hand[5]++;
-            break;
-            }
+            //animation stuff
+            hand[i] += result.resourcesGiven[i];
         }
         // TODO: Animation for removing resources
     }
