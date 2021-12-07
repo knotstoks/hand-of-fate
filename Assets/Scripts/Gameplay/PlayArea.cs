@@ -38,19 +38,22 @@ public class PlayArea : MonoBehaviour
                 PlayArea.resourcesIn[4]++;
                 break;
         }
-        /* checks the three events
-        int idolRequired = 0;
-        for(int i = 0; i<4; i++) {
-            int surplus = choice.Requirement.resourcesNeeded[i] - PlayArea.resourcesIn[i];
-            if(surplus > 0) {
-                idolRequired += surplus;
+        /*
+        List<Requirement> choices;
+        for(int i = 0; i < 3; i++) { 
+            int idolRequired = 0;
+            for(int j = 0; j < 4; i++) {
+                int surplus = choices[i].resourcesNeeded[j] - PlayArea.resourcesIn[j];
+                if(surplus > 0) {
+                    idolRequired += surplus;
+                }
+            }
+            if(PlayArea.resourcesIn[4] >= idolRequired) {
+                //UI light up the selected choice
             }
         }
-        if(PlayArea.resourcesIn[4] >= idolRequired) {
-            //UI light up the selected choice
-        }
-        //repeat for the three events
         */
+ 
         Debug.Log("tets");
     }
 
