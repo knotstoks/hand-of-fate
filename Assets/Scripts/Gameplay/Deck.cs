@@ -16,13 +16,9 @@ public class Deck : MonoBehaviour
     [HideInInspector] public Event eventShown;
     [HideInInspector] public Queue<Event> drawPile;
     [HideInInspector] public List<Event> discardPile;
-    public delegate void DeckEvent();
-    public static event DeckEvent DrawReady;
-    public static event DeckEvent DrawNotReady;
-    public static event DeckEvent ChoiceReady;
-    public static event DeckEvent ChoiceNotReady;
-    public delegate void HandEvent(Choice choice);
-    public static event HandEvent ChoiceChosen;
+    public Manager manager;
+    public PlayArea playArea;
+    public Hand hand;
     public delegate void UiEvent(Event eventToDisplay);
     public static event UiEvent ShowEvent;
     public static event UiEvent FlipEvent;
@@ -31,25 +27,17 @@ public class Deck : MonoBehaviour
     public static event UiDiplay UiShuffleDeck;
     public static event UiDiplay UiSelectedChoice;
 
-    private void Start()
-    {
-        Manager.GenerateDeck += GenerateDeck;
-        Manager.DrawCard += DrawCard;
-        Manager.FlipCard += FlipCard;
-        Manager.ChooseChoice += ResolveEvent;
-    }
-
-    private void GenerateDeck()
+    public void GenerateDeck()
     {
         // TODO: Select number of cards from the piles and add it to the discard pile
 
         ReshuffleDeck();
     }
 
-    private void ReshuffleDeck()
+    public void ReshuffleDeck()
     {
-        Deck.DrawNotReady(); // Stop inputs by player just in case
-        Deck.ChoiceNotReady();
+        manager.StopDrawing(); // Stop inputs by player just in case
+        manager.StopFlipping();
 
         ShuffleDiscardPile();
         for (int i = 0; i < discardPile.Count; i++)
@@ -58,14 +46,14 @@ public class Deck : MonoBehaviour
         }
         discardPile.Clear();
 
-        Deck.DrawReady(); // Allow inputs by player
-        Deck.ChoiceReady();
+        manager.AllowDrawing(); // Allow inputs by player
+        manager.AllowDrawing();
     }
     
-    private void DrawCard()
+    public void DrawCard()
     {
-        Deck.DrawNotReady(); // Stop drawing input by player
-        Deck.ChoiceReady();
+        manager.StopDrawing(); // Stop drawing input by player
+        manager.StopFlipping();
 
         Event currEvent = drawPile.Dequeue();
         eventShown = currEvent;
@@ -74,9 +62,9 @@ public class Deck : MonoBehaviour
         ShowEvent(currEvent);
     }
 
-    private void FlipCard()
+    public void FlipCard()
     {
-        Deck.ChoiceNotReady();
+        manager.StopFlipping();
         FlipEvent(eventShown);
     }
 
@@ -106,7 +94,7 @@ public class Deck : MonoBehaviour
 
         Result result = choice.result;
 
-        ChoiceChosen(choice); // Change resources in hand
+        hand.ResolveChoice(choice); // Change resources in hand
 
         // TODO: Animation of putting it in
 

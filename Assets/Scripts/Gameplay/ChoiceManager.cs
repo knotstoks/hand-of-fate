@@ -6,18 +6,12 @@ public class ChoiceManager : MonoBehaviour
     public delegate void ClickEvent(int index);
     public static event ClickEvent MakeChoice;
 
-    public void Start()
-    {
-        Deck.ChoiceReady += EnableChoices;
-        Deck.ChoiceNotReady += DisableChoices;
-    }
-
-    private void EnableChoices()
+    public void EnableChoices()
     {
         isActive = true;
     }
 
-    private void DisableChoices()
+    public void DisableChoices()
     {
         isActive = false;
     }

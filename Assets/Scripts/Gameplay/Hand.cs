@@ -6,13 +6,8 @@ public class Hand : MonoBehaviour
     [Header("Prefabs for Resource Cards")]
     public List<ResourceCard> resourceCards;
     public int[] hand = new int[6]; // Money, Crewmate, Favour, Supplies, Idol, Omen
-    
-    private void Start()
-    {
-        Deck.ChoiceChosen += ResolveChoice;
-    }
 
-    private void ResolveChoice(Choice choice)
+    public void ResolveChoice(Choice choice)
     {
         // Destroy choice requirement
         Requirement requirement = choice.requirement;
