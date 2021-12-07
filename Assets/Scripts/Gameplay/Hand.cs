@@ -5,7 +5,7 @@ public class Hand : MonoBehaviour
 {
     [Header("Prefabs for Resource Cards")]
     public List<ResourceCard> resourceCards;
-    public Resource[] hand = new Resource[6]; // Money, Crewmate, Favour, Supplies, Idol, Omen
+    public int[] hand = new int[6]; // Money, Crewmate, Favour, Supplies, Idol, Omen
     
     private void Start()
     {
