@@ -4,6 +4,6 @@ public enum Resource
     Crewmate,
     Favour,
     Supplies,
-    Idol,
-    Omen
+    Omen,
+    Idol
 }

@@ -10,32 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Shark Attack
+  m_Name: Mermaid in the Night
   m_EditorClassIdentifier: 
-  cardName: 
   cardImage: {fileID: 0}
-  numberOfChoices: 0
+  numberOfChoices: 2
   firstChoice:
+    choiceDescription: Accept her gift
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardToAdd: {fileID: 0}
+      resourcesGiven: 000000000000000000000000000000000000000001000000
+    additionalText: 
+  secondChoice:
+    choiceDescription: Invite her to join you
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardToAdd: {fileID: 0}
+      resourcesGiven: 000000000100000001000000000000000000000000000000
+    additionalText: 
+  thirdChoice:
     choiceDescription: 
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
       cardToAdd: {fileID: 0}
-      resourcesGiven: 0000000000000000000000000000000000000000
-  secondChoice:
-    choiceDescription: 
-    requirement:
-      resourcesNeeded: 
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 
-  thirdChoice:
-    choiceDescription: 
-    requirement:
-      resourcesNeeded: 
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 
+      resourcesGiven: 000000000000000000000000000000000000000000000000
+    additionalText: 
+  winGameEvent: 0
+  loseGameEvent: 0

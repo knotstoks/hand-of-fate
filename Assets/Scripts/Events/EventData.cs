@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EventData : ScriptableObject
 {
-    public string cardName;
     public Sprite cardImage;
     [Space(20)]
     public int numberOfChoices;

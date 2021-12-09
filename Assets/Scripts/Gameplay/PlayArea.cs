@@ -92,9 +92,6 @@ public class PlayArea : MonoBehaviour
             }
         }
         */
-        
- 
-        Debug.Log("tets");
     }
 
     private void ResolveChoice()
