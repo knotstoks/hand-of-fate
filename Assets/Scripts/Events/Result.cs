@@ -4,6 +4,6 @@ using System.Collections.Generic;
 public class Result
 {
     public bool isCardToAddPresent;
-    public Event cardToAdd;
+    public List<Event> cardsToAdd;
     public int[] resourcesGiven = new int[6];
 }

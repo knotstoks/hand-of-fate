@@ -23,9 +23,9 @@ public class PlayArea : MonoBehaviour
 
     public void UpdateEvent(Event newEvent) 
     {
-        choices[0] = newEvent.eventData.firstChoice.requirement;
-        choices[1] = newEvent.eventData.secondChoice.requirement;
-        choices[2] = newEvent.eventData.thirdChoice.requirement;
+        choices[0] = newEvent.firstChoice.requirement;
+        choices[1] = newEvent.secondChoice.requirement;
+        choices[2] = newEvent.thirdChoice.requirement;
     }
     
     /*

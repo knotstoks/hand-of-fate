@@ -10,36 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Pirates block your way
+  m_Name: Fisherman's Folly
   m_EditorClassIdentifier: 
+  throwSameCardBack: 1
   cardImage: {fileID: 0}
   numberOfChoices: 3
   firstChoice:
-    choiceDescription: Give them an I.O.U
+    choiceDescription: Buy him another ring
     requirement:
-      resourcesNeeded: 000000000000000001000000000000000000000000000000
+      resourcesNeeded: 010000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000001000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   secondChoice:
-    choiceDescription: Pay them what they want
+    choiceDescription: Add to his catch to cheer him up
     requirement:
-      resourcesNeeded: 020000000000000000000000000000000000000000000000
+      resourcesNeeded: 000000000000000000000000010000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000001000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   thirdChoice:
-    choiceDescription: Pray for them to get struck by lightning
+    choiceDescription: Empathy is for the weak
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000200000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
-  winGameEvent: 0
-  loseGameEvent: 0
+    winGameEvent: 0
+    loseGameEvent: 0

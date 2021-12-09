@@ -10,34 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Something Shiny
+  m_Name: Get ready to sail
   m_EditorClassIdentifier: 
+  throwSameCardBack: 0
   cardImage: {fileID: 0}
   numberOfChoices: 3
   firstChoice:
-    choiceDescription: It's a gold doubloon
+    choiceDescription: 
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 010000000000000000000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   secondChoice:
-    choiceDescription: It's a lost pocket watch, better return it
+    choiceDescription: 
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000001000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   thirdChoice:
-    choiceDescription: It's a weird looking statue
+    choiceDescription: Maybe some other time
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000200000001000000
-    additionalText: 
+      isCardToAddPresent: 1
+      cardsToAdd:
+      - {fileID: 11400000}
+      resourcesGiven: 000000000000000000000000000000000000000000000000
+    additionalText: Insert the first chapter of the saga into the deck
+    winGameEvent: 0
+    loseGameEvent: 0

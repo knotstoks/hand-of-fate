@@ -10,36 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Mermaid in the Night
+  m_Name: An empty void answers back
   m_EditorClassIdentifier: 
   cardImage: {fileID: 0}
-  numberOfChoices: 2
+  numberOfChoices: 1
   firstChoice:
-    choiceDescription: Accept her gift
+    choiceDescription: You can only hear the deafening silence
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000001000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   secondChoice:
-    choiceDescription: Invite her to join you
+    choiceDescription: 
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000100000001000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
   thirdChoice:
     choiceDescription: 
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
+      cardsToAdd: []
       resourcesGiven: 000000000000000000000000000000000000000000000000
     additionalText: 
-  winGameEvent: 0
-  loseGameEvent: 0
+    winGameEvent: 0
+    loseGameEvent: 0

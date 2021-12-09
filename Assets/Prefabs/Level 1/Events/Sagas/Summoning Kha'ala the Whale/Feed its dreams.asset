@@ -10,40 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Wrath of the Sea
+  m_Name: Feed its dreams
   m_EditorClassIdentifier: 
+  throwSameCardBack: 0
   cardImage: {fileID: 0}
   numberOfChoices: 3
   firstChoice:
-    choiceDescription: Throw some weight overboard
+    choiceDescription: Lure it closer
     requirement:
-      resourcesNeeded: 010000000000000000000000010000000000000000000000
+      resourcesNeeded: 000000000000000000000000020000000000000000000000
     result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
+      isCardToAddPresent: 1
+      cardsToAdd:
+      - {fileID: 11400000, guid: b6e2f8e62118eb548ac7bfba4f4a035d, type: 2}
       resourcesGiven: 000000000000000000000000000000000000000000000000
-    additionalText: 
+    additionalText: Insert the next chapter of the saga into the deck
     winGameEvent: 0
     loseGameEvent: 0
   secondChoice:
-    choiceDescription: The Gods want human sacrifice
+    choiceDescription: Lure it closer
     requirement:
       resourcesNeeded: 000000000200000000000000000000000000000000000000
     result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
+      isCardToAddPresent: 1
+      cardsToAdd:
+      - {fileID: 11400000, guid: b6e2f8e62118eb548ac7bfba4f4a035d, type: 2}
       resourcesGiven: 000000000000000000000000000000000000000000000000
-    additionalText: 
+    additionalText: Insert the next chapter of the saga into the deck
     winGameEvent: 0
     loseGameEvent: 0
   thirdChoice:
-    choiceDescription: Accept your fate to the elements
+    choiceDescription: We can't support his hunger
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000000000000
-    additionalText: Lose the game
+      isCardToAddPresent: 1
+      cardsToAdd:
+      - {fileID: 11400000, guid: 12f55c2e8b186164c8e9609180e3fa49, type: 2}
+      resourcesGiven: 000000000000000000000000000000000100000000000000
+    additionalText: Insert the first chapter of the saga into the deck
     winGameEvent: 0
-    loseGameEvent: 1
+    loseGameEvent: 0

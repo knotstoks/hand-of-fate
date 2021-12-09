@@ -10,40 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: To the Market
+  m_Name: Something Shiny
   m_EditorClassIdentifier: 
+  throwSameCardBack: 1
   cardImage: {fileID: 0}
   numberOfChoices: 3
   firstChoice:
-    choiceDescription: I need some supplies
-    requirement:
-      resourcesNeeded: 010000000000000000000000000000000000000000000000
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000020000000000000000000000
-    additionalText: 
-    winGameEvent: 0
-    loseGameEvent: 0
-  secondChoice:
-    choiceDescription: I need someone to rely on
-    requirement:
-      resourcesNeeded: 010000000000000000000000000000000000000000000000
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000100000000000000000000000000000000000000
-    additionalText: 
-    winGameEvent: 0
-    loseGameEvent: 0
-  thirdChoice:
-    choiceDescription: I need to save money
+    choiceDescription: It's a gold doubloon
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 010000000000000000000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
+  secondChoice:
+    choiceDescription: It's a lost pocket watch, better return it
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000000000001000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
+  thirdChoice:
+    choiceDescription: It's a weird looking statue
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000200000001000000
     additionalText: 
     winGameEvent: 0
     loseGameEvent: 0

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Deck : MonoBehaviour
 {
@@ -22,10 +23,10 @@ public class Deck : MonoBehaviour
     public delegate void UiEvent(Event eventToDisplay);
     public static event UiEvent ShowEvent;
     public static event UiEvent FlipEvent;
-    public static event UiEvent PlaceInEvent;
-    public delegate void UiDiplay();
-    public static event UiDiplay UiShuffleDeck;
-    public static event UiDiplay UiSelectedChoice;
+    public delegate void UiDisplay();
+    public static event UiDisplay UiShuffleDeck;
+    public static event UiDisplay UiSelectedChoice;
+    public static event UiDisplay PlaceInEvent;
 
     public void GenerateDeck()
     {
@@ -73,7 +74,7 @@ public class Deck : MonoBehaviour
     {
         int index = choiceTaken - 1;
         // Check if there is no choice at that slot and if so do nothing
-        if (eventShown.eventData.numberOfChoices < index)
+        if (eventShown.numberOfChoices < index)
         {
             return;
         }
@@ -83,13 +84,13 @@ public class Deck : MonoBehaviour
         switch (index)
         {
             case 0:
-            choice = eventShown.eventData.firstChoice;
+            choice = eventShown.firstChoice;
             break;
             case 1:
-            choice = eventShown.eventData.secondChoice;
+            choice = eventShown.secondChoice;
             break;
             case 2:
-            choice = eventShown.eventData.thirdChoice;
+            choice = eventShown.thirdChoice;
             break;
         }
 
@@ -101,8 +102,17 @@ public class Deck : MonoBehaviour
 
         if (result.isCardToAddPresent) // Put in the card in the discard pile if it exists
         {
-            discardPile.Add(result.cardToAdd);
-            PlaceInEvent(result.cardToAdd);
+            int num = Random.Range(0, result.cardsToAdd.Count);
+            Event eventToAdd = result.cardsToAdd[num];
+            discardPile.Add(eventToAdd);
+
+            PlaceInEvent();
+        }
+
+        // Check if you need to return the card back to the deck
+        if (eventShown.throwSameCardBack)
+        {
+            discardPile.Add(eventShown);
         }
 
         discardPile.Add(eventShown); // Discard the card

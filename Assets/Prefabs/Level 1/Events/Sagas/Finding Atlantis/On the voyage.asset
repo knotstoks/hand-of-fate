@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
+  m_Name: On the voyage
+  m_EditorClassIdentifier: 
+  throwSameCardBack: 0
+  cardImage: {fileID: 0}
+  numberOfChoices: 1
+  firstChoice:
+    choiceDescription: Continue onwards
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 1
+      cardsToAdd:
+      - {fileID: 11400000, guid: 4e89a03d73d0c42428c4b33da1272ce2, type: 2}
+      resourcesGiven: 000000000000000000000000000000000000000000000000
+    additionalText: Insert the next chapter of the saga into the deck
+    winGameEvent: 0
+    loseGameEvent: 0
+  secondChoice:
+    choiceDescription: 
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
+  thirdChoice:
+    choiceDescription: 
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0

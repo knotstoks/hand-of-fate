@@ -10,40 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36dddcfd41e056e469fdca857a71b4d2, type: 3}
-  m_Name: Travelling Merchant
+  m_Name: Time goes on
   m_EditorClassIdentifier: 
+  throwSameCardBack: 1
   cardImage: {fileID: 0}
   numberOfChoices: 3
   firstChoice:
-    choiceDescription: Buy his goods
-    requirement:
-      resourcesNeeded: 020000000000000000000000000000000000000000000000
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000010000000000000000000000
-    additionalText: 
-    winGameEvent: 0
-    loseGameEvent: 0
-  secondChoice:
-    choiceDescription: Sell your goods
-    requirement:
-      resourcesNeeded: 000000000000000000000000020000000000000000000000
-    result:
-      isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 010000000000000000000000000000000000000000000000
-    additionalText: 
-    winGameEvent: 0
-    loseGameEvent: 0
-  thirdChoice:
-    choiceDescription: Not today
+    choiceDescription: Get richer
     requirement:
       resourcesNeeded: 000000000000000000000000000000000000000000000000
     result:
       isCardToAddPresent: 0
-      cardToAdd: {fileID: 0}
-      resourcesGiven: 000000000000000000000000000000000000000000000000
+      cardsToAdd: []
+      resourcesGiven: 010000000000000000000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
+  secondChoice:
+    choiceDescription: Recruit more people
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000100000000000000000000000000000000000000
+    additionalText: 
+    winGameEvent: 0
+    loseGameEvent: 0
+  thirdChoice:
+    choiceDescription: Receive more donations for your adventures
+    requirement:
+      resourcesNeeded: 000000000000000000000000000000000000000000000000
+    result:
+      isCardToAddPresent: 0
+      cardsToAdd: []
+      resourcesGiven: 000000000000000000000000010000000000000000000000
     additionalText: 
     winGameEvent: 0
     loseGameEvent: 0

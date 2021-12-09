@@ -31,7 +31,7 @@ public class Ui : MonoBehaviour
 
     }
 
-    private void PlaceInCard(Event eventToPlace)
+    private void PlaceInCard()
     {
 
     }
