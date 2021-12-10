@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
-    public Event eventOnDisplay;
+    [HideInInspector] public Event eventOnDisplay;
     public bool canDrawCard; // State where the card is shown face down
     public bool canFlipCard; // State where the card is flipped
     public Deck deck;
+    public Image readyImage; // Green for can draw, blue for cna flip, black for disabled
     private void Start()
     {
         canDrawCard = false;
@@ -15,7 +17,7 @@ public class Manager : MonoBehaviour
         deck.GenerateDeck();
 
         // Game can start now
-        canDrawCard = true;
+        AllowDrawing();
     }
 
     private void Update()
@@ -28,6 +30,7 @@ public class Manager : MonoBehaviour
         {
             // TODO: Flips open the card and reveals choices
             deck.FlipCard();
+            Debug.Log("Test");
         }
     }
 
@@ -40,11 +43,13 @@ public class Manager : MonoBehaviour
     public void AllowDrawing()
     {
         canDrawCard = true;
+        readyImage.color = Color.green;
     }
 
     public void StopDrawing()
     {
         canDrawCard = false;
+        readyImage.color = Color.blue;
     }
 
     public void AllowFlipping()
@@ -55,5 +60,6 @@ public class Manager : MonoBehaviour
     public void StopFlipping()
     {
         canFlipCard = false;
+        readyImage.color = Color.black;
     }
 }

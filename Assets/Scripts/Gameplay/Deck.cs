@@ -31,7 +31,55 @@ public class Deck : MonoBehaviour
     public void GenerateDeck()
     {
         // TODO: Select number of cards from the piles and add it to the discard pile
+        // Shuffle and add Positive Events
+        var count = positiveEvents.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i) 
+        {
+            var r = Random.Range(i, count);
+            var tmp = positiveEvents[i];
+            positiveEvents[i] = positiveEvents[r];
+            positiveEvents[r] = tmp;
+        }
 
+        for (int i = 0; i < numberOfPostiveEvents; i++)
+        {
+            discardPile.Add(positiveEvents[i]);
+        }
+
+        // Shuffle and add Negative Events
+        count = negativeEvents.Count;
+        last = count - 1;
+        for (var i = 0; i < last; ++i) 
+        {
+            var r = Random.Range(i, count);
+            var tmp = negativeEvents[i];
+            negativeEvents[i] = negativeEvents[r];
+            negativeEvents[r] = tmp;
+        }
+
+        for (int i = 0; i < numberOfNegativeEvents; i++)
+        {
+            discardPile.Add(negativeEvents[i]);
+        }
+
+        // Shuffle and add Neutral Events
+        count = neutralEvents.Count;
+        last = count - 1;
+        for (var i = 0; i < last; ++i) 
+        {
+            var r = Random.Range(i, count);
+            var tmp = neutralEvents[i];
+            neutralEvents[i] = neutralEvents[r];
+            neutralEvents[r] = tmp;
+        }
+
+        for (int i = 0; i < numberOfNeutralEvents; i++)
+        {
+            discardPile.Add(neutralEvents[i]);
+        }
+
+        // Shuffle the Discard Deck
         ReshuffleDeck();
     }
 
@@ -132,11 +180,13 @@ public class Deck : MonoBehaviour
     /*
     Method to quickly shuffle list
     */
-    private void ShuffleDiscardPile() {
+    private void ShuffleDiscardPile() 
+    {
         var count = discardPile.Count;
         var last = count - 1;
-        for (var i = 0; i < last; ++i) {
-            var r = UnityEngine.Random.Range(i, count);
+        for (var i = 0; i < last; ++i) 
+        {
+            var r = Random.Range(i, count);
             var tmp = discardPile[i];
             discardPile[i] = discardPile[r];
             discardPile[r] = tmp;
