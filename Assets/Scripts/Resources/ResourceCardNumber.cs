@@ -6,11 +6,11 @@ public class ResourceCardNumber : MonoBehaviour
 {
     public SpriteRenderer image;
     public Resource type;
+    public PlayArea playArea;
     private Vector3 originalPosition;
     private Vector3 dragOffset;
     private Camera sceneCamera;
     private GameObject hand;
-    private PlayArea playArea;
     private BoxCollider2D selfCollider;
     private void Awake()
     {
@@ -18,7 +18,6 @@ public class ResourceCardNumber : MonoBehaviour
 
         sceneCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         hand = GameObject.FindGameObjectWithTag("Hand");
-        playArea = GameObject.FindGameObjectWithTag("PlayArea").GetComponent<PlayArea>();
     }
 
     public void Replace(Sprite image)

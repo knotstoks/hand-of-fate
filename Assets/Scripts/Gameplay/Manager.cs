@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
 
         // Generate and shuffle the deck
         deck.GenerateDeck();
+        Debug.Log("test");
 
         // Game can start now
         AllowDrawing();

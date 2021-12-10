@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Deck : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class Deck : MonoBehaviour
     public List<Event> neutralEvents;
     public List<Event> sagas;
     [HideInInspector] public Event eventShown;
-    [HideInInspector] public Queue<Event> drawPile;
+    [HideInInspector] public Queue<Event> drawPile = new Queue<Event>();
     [HideInInspector] public List<Event> discardPile;
     public Manager manager;
     public PlayArea playArea;
@@ -109,7 +108,7 @@ public class Deck : MonoBehaviour
         playArea.UpdateEvent(eventShown);
 
         // Animation of drawing card
-        ShowEvent(currEvent);
+        // ShowEvent(currEvent);
     }
 
     public void FlipCard()

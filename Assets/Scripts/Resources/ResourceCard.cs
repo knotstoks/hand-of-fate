@@ -4,7 +4,6 @@ public class ResourceCard : MonoBehaviour
 {
     public Resource type;
     public int handIndex;
-
     private Vector3 dragOffset;
     private Camera sceneCamera;
     private GameObject playArea;

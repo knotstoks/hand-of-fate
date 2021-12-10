@@ -9,7 +9,6 @@ public class Hand : MonoBehaviour
     public List<Transform> positions;
     public List<GameObject> existingResourceCards;
     public int occupied;
-
     public void ResolveChoice(Choice choice)
     {
         // Destroy choice requirement
@@ -62,8 +61,6 @@ public class Hand : MonoBehaviour
         newCard.GetComponent<ResourceCard>().type = type;
         newCard.GetComponent<ResourceCard>().handIndex = occupied;
         existingResourceCards.Add(newCard);
-
-
     }
 
     public void AddResources(int index)
@@ -98,7 +95,8 @@ public class Hand : MonoBehaviour
         existingResourceCards.Add(newCard);
     }
 
-    public Vector3 ReturnPosition(int index) { 
+    public Vector3 ReturnPosition(int index) 
+    { 
         return positions[index].position;
     }
 

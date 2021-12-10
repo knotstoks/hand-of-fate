@@ -3,6 +3,7 @@ using UnityEngine;
 public class ChoiceManager : MonoBehaviour
 {
     public Manager manager;
+    public PlayArea playArea;
     public bool isActive;
     public GameObject[] choiceAreas;
 
@@ -37,6 +38,7 @@ public class ChoiceManager : MonoBehaviour
     public void GetChoiceInput(int index)
     {
         DisableChoices();
+        playArea.ResolveChoice(index);
         manager.SelectChoice(index);
     }
 }
