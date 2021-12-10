@@ -130,14 +130,6 @@ public class Deck : MonoBehaviour
     }
 
     /*
-    TODO: Static method to move the resource back to hand if resource goes out of bounds
-    */
-    public static void ReturnResource()
-    {
-        
-    }
-
-    /*
     Method to quickly shuffle list
     */
     private void ShuffleDiscardPile() {

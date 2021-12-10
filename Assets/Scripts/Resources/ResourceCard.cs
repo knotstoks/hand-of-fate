@@ -3,9 +3,12 @@ using UnityEngine;
 public class ResourceCard : MonoBehaviour
 {
     public Resource type;
+    public int handIndex;
+
     private Vector3 dragOffset;
     private Camera sceneCamera;
     private GameObject playArea;
+    private Hand hand;
     private BoxCollider2D selfCollider;
     private void Awake()
     {
@@ -13,6 +16,7 @@ public class ResourceCard : MonoBehaviour
 
         sceneCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playArea = GameObject.FindGameObjectWithTag("PlayArea");
+        hand = GameObject.FindGameObjectWithTag("Hand").GetComponent<Hand>();
     }
 
     private void OnMouseDown()
@@ -30,11 +34,11 @@ public class ResourceCard : MonoBehaviour
         if(playArea.GetComponent<BoxCollider2D>().bounds.Intersects(selfCollider.bounds))
         {
             playArea.GetComponent<PlayArea>().AddResources(type);
+            hand.RemoveResource(handIndex, type);
             Destroy(gameObject);
         }
 
-        //Deck.ReturnResource(type);
-        Destroy(gameObject);
+        transform.position = hand.ReturnPosition(handIndex);
     }
 
     private Vector3 GetMousePosition()
