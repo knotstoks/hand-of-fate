@@ -23,7 +23,6 @@ public class PlayArea : MonoBehaviour
 
     public void UpdateEvent(Event newEvent) 
     {
-        Debug.Log(newEvent);
         requirements.Clear();
         requirements.Add(newEvent.firstChoice.requirement);
         requirements.Add(newEvent.secondChoice.requirement);

@@ -19,6 +19,7 @@ public class Deck : MonoBehaviour
     public Manager manager;
     public PlayArea playArea;
     public Hand hand;
+    public ChoiceManager choiceManager;
     public delegate void UiEvent(Event eventToDisplay);
     public static event UiEvent ShowEvent;
     public static event UiEvent FlipEvent;
@@ -101,7 +102,7 @@ public class Deck : MonoBehaviour
     public void DrawCard()
     {
         manager.StopDrawing(); // Stop drawing input by player
-        manager.StopFlipping();
+        manager.AllowFlipping();
 
         Event currEvent = drawPile.Dequeue();
         eventShown = currEvent;
@@ -115,6 +116,8 @@ public class Deck : MonoBehaviour
     {
         manager.StopFlipping();
         FlipEvent(eventShown);
+        choiceManager.EnableChoices();
+        Debug.Log(eventShown);
     }
 
     public void ResolveEvent(int choiceTaken)

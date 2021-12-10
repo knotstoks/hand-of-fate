@@ -15,7 +15,6 @@ public class Manager : MonoBehaviour
 
         // Generate and shuffle the deck
         deck.GenerateDeck();
-        Debug.Log("test");
 
         // Game can start now
         AllowDrawing();
@@ -31,13 +30,11 @@ public class Manager : MonoBehaviour
         {
             // TODO: Flips open the card and reveals choices
             deck.FlipCard();
-            Debug.Log("Test");
         }
     }
 
-    public void SelectChoice(int choice) // TODO
+    public void SelectChoice(int choice)
     {
-        // TODO: Check to see if area has required resources
         deck.ResolveEvent(choice);
     }
 

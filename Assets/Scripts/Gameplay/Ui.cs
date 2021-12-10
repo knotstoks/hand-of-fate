@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Ui : MonoBehaviour
 {
+    public ChoiceManager choiceManager;
     private void Start()
     {
         Deck.ShowEvent += ShowEvent;
@@ -13,12 +14,15 @@ public class Ui : MonoBehaviour
 
     private void ShowEvent(Event eventToShow)
     {
-
+        // TODO: Animation of drawing
     }
 
     private void FlipEvent(Event eventToFlip)
     {
+        // TODO: Animation of Flipping
 
+        // Update the display of texts and resources needed and given
+        choiceManager.UpdateVisuals(eventToFlip);
     }
 
     private void ShuffleDeck()
