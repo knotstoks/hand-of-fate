@@ -30,6 +30,7 @@ public class Hand : MonoBehaviour
         // TODO: Animation for removing resources
     }
 
+    // Adds resources to hand
     public void AddResources(Resource type)
     {
         int index = 0;
@@ -133,5 +134,4 @@ public class Hand : MonoBehaviour
                 break;
         }
     }
-
 }

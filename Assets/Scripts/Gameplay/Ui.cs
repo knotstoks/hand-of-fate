@@ -5,7 +5,7 @@ public class Ui : MonoBehaviour
     public ChoiceManager choiceManager;
     private void Start()
     {
-        Deck.ShowEvent += ShowEvent;
+        // Deck.ShowEvent += ShowEvent;
         Deck.FlipEvent += FlipEvent;
         Deck.UiShuffleDeck += ShuffleDeck;
         Deck.UiSelectedChoice += SelectedChoice;
