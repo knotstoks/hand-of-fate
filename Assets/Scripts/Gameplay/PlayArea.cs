@@ -34,7 +34,7 @@ public class PlayArea : MonoBehaviour
     */
     
     //Checks the current number of resources inside the playarea to determine the sprite
-    private void checkStatus(int index)
+    private void CheckStatus(int index)
     {
         if(resourcesIn[index] == 0)
         {
@@ -53,27 +53,27 @@ public class PlayArea : MonoBehaviour
         {
             case Resource.Money:
                 PlayArea.resourcesIn[0]++;
-                checkStatus(0);
+                CheckStatus(0);
                 break;
             case Resource.Crewmate:
                 PlayArea.resourcesIn[1]++;
-                checkStatus(1);
+                CheckStatus(1);
                 break;
             case Resource.Favour:
                 PlayArea.resourcesIn[2]++;
-                checkStatus(2);
+                CheckStatus(2);
                 break;
             case Resource.Supplies:
                 PlayArea.resourcesIn[3]++;
-                checkStatus(3);
+                CheckStatus(3);
                 break;
             case Resource.Omen:
                 PlayArea.resourcesIn[4]++;
-                checkStatus(4);
+                CheckStatus(4);
                 break;
             case Resource.Idol:
                 PlayArea.resourcesIn[5]++;
-                checkStatus(5);
+                CheckStatus(5);
                 break;
         }
 
@@ -105,27 +105,27 @@ public class PlayArea : MonoBehaviour
         {
             case Resource.Money:
                 PlayArea.resourcesIn[0]--;
-                checkStatus(0);
+                CheckStatus(0);
                 break;
             case Resource.Crewmate:
                 PlayArea.resourcesIn[1]--;
-                checkStatus(1);
+                CheckStatus(1);
                 break;
             case Resource.Favour:
                 PlayArea.resourcesIn[2]--;
-                checkStatus(2);
+                CheckStatus(2);
                 break;
             case Resource.Supplies:
                 PlayArea.resourcesIn[3]--;
-                checkStatus(3);
+                CheckStatus(3);
                 break;
             case Resource.Omen:
                 PlayArea.resourcesIn[4]--;
-                checkStatus(4);
+                CheckStatus(4);
                 break;
             case Resource.Idol:
                 PlayArea.resourcesIn[5]--;
-                checkStatus(5);
+                CheckStatus(5);
                 break;
         }
         /*
@@ -172,7 +172,7 @@ public class PlayArea : MonoBehaviour
                 idolRequired -= difference;
             }
             resourcesIn[i] = 0;
-            checkStatus(i);
+            CheckStatus(i);
         }
 
         int idolDifference = resourcesIn[5] - requirements[choiceNumber].resourcesNeeded[5];
@@ -185,6 +185,6 @@ public class PlayArea : MonoBehaviour
         }
 
         resourcesIn[5] = 0;
-        checkStatus(5);
+        CheckStatus(5);
     }
 }
