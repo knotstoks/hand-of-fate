@@ -21,7 +21,7 @@ public class Deck : MonoBehaviour
     public Hand hand;
     public ChoiceManager choiceManager;
     public delegate void UiEvent(Event eventToDisplay);
-    // public static event UiEvent ShowEvent;
+    public static event UiEvent DrawEvent;
     public static event UiEvent FlipEvent;
     public delegate void UiDisplay();
     public static event UiDisplay UiShuffleDeck;
@@ -109,7 +109,7 @@ public class Deck : MonoBehaviour
         playArea.UpdateEvent(eventShown);
 
         // Animation of drawing card
-        // ShowEvent(currEvent);
+        DrawEvent(currEvent);
     }
 
     public void FlipCard()
